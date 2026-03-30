@@ -121,3 +121,19 @@ body {
     transform: rotate(-15deg);
     z-index: 3;
 }
+.btn-disabled {
+    /* 1. Evita que sea clicable */
+    pointer-events: none; 
+    
+    /* 2. Estética "Mono" / Pastel */
+    background-color: var(--rosa-soft) !important; /* Un rosa muy clarito */
+    color: white !important;
+    border-color: var(--rosa-soft) !important;
+    
+    /* 3. El toque "desactivado" con clase */
+    opacity: 0.7;
+    cursor: default;
+    
+    /* 4. Opcional: un toque de escala de grises sutil */
+    filter: saturate(0.5);
+}
