@@ -1,0 +1,123 @@
+:root {
+    --antracita: #333333;
+    --crema: #F5F5F0;
+    --rosa-viejo: #C19A9B;
+    --rosa-soft: #E8D5D6;
+}
+
+* { margin: 0; padding: 0; box-shadow: border-box; }
+
+body {
+    background-color: var(--crema);
+    color: var(--antracita);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    /* Textura de papel sutil */
+    background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 60px; /* Ajusta según tu imagen */
+    margin-bottom: 60px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.editorial-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.italic { font-style: italic; color: var(--rosa-viejo); }
+
+.subheadline {
+    max-width: 600px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+    margin: 0 auto 40px;
+    opacity: 0.8;
+}
+
+/* --- BOTÓN PREMIUM --- */
+.btn-premium {
+    display: inline-block;
+    background-color: var(--antracita);
+    color: var(--crema);
+    padding: 18px 35px;
+    text-decoration: none;
+    border-radius: 2px; /* Casi cuadrado para ser más elegante */
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 1px solid var(--antracita);
+}
+
+.btn-premium:hover {
+    background-color: transparent;
+    color: var(--antracita);
+    transform: translateY(-3px);
+}
+
+.handwritten-note {
+    display: block;
+    font-family: 'La Belle Aurore', cursive;
+    color: var(--rosa-viejo);
+    font-size: 1.4rem;
+    margin-top: 15px;
+}
+
+/* --- MOODBOARD / POLAROIDS --- */
+.moodboard-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 80px;
+    height: 400px;
+}
+
+.polaroid {
+    position: absolute;
+    background: white;
+    padding: 12px 12px 40px 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.07);
+    border: 1px solid rgba(0,0,0,0.03);
+    max-width: 250px;
+    transition: transform 0.4s ease;
+}
+
+.polaroid img { width: 100%; height: auto; display: block; }
+
+.p1 { left: 10%; transform: rotate(-5deg); z-index: 2; }
+.p2 { right: 15%; top: 40px; transform: rotate(4deg); z-index: 1; }
+
+.polaroid:hover {
+    z-index: 10;
+    transform: scale(1.05) rotate(0deg);
+}
+
+/* Washi Tape Decorativo */
+.washi-tape {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    background: var(--rosa-soft);
+    opacity: 0.6;
+    top: 20px;
+    left: 20%;
+    transform: rotate(-15deg);
+    z-index: 3;
+}
