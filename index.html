@@ -4,37 +4,611 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NoryaNotes | Tu santuario digital</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Inter:wght@300;400;600&family=La+Belle+Aurore&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="NoryaNotes — notas manuscritas, tareas y diario en un solo lugar. Diseñada para iPad con Apple Pencil.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rose: #D4A5B5;
+            --rose-deep: #C48DA0;
+            --lavender: #B8A9C9;
+            --sage: #A8C5A0;
+            --cream: #FDF8F4;
+            --cream-warm: #F9F1EA;
+            --beige: #E8DDD3;
+            --text: #4A3F3F;
+            --text-soft: #7A6B6B;
+            --text-muted: #A89898;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* ─── NAV ─── */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1.2rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(253, 248, 244, 0.85);
+            border-bottom: 1px solid rgba(212, 165, 181, 0.15);
+        }
+
+        .nav .logo {
+            height: 36px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: var(--text-soft);
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--rose-deep);
+        }
+
+        /* ─── HERO ─── */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(184, 169, 201, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -60px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 165, 181, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .editorial-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 400;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s ease-out;
+        }
+
+        .editorial-title .italic {
+            font-style: italic;
+            color: var(--rose-deep);
+        }
+
+        .subheadline {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-weight: 300;
+            color: var(--text-soft);
+            max-width: 520px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            animation: fadeUp 1s ease-out 0.2s both;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            animation: fadeUp 1s ease-out 0.4s both;
+        }
+
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--rose), var(--lavender));
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 20px rgba(212, 165, 181, 0.35);
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 165, 181, 0.45);
+        }
+
+        .btn-disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .handwritten-note {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 1.3rem;
+            color: var(--rose-deep);
+            opacity: 0.8;
+        }
+
+        /* ─── MOODBOARD ─── */
+        .moodboard {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 4rem;
+            animation: fadeUp 1.2s ease-out 0.6s both;
+        }
+
+        .polaroid {
+            background: var(--white);
+            padding: 8px 8px 28px;
+            border-radius: 4px;
+            box-shadow: 0 8px 32px rgba(74, 63, 63, 0.1);
+            transition: transform 0.5s ease;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+
+        .polaroid img {
+            width: 220px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .p1 { transform: rotate(-3deg); }
+        .p2 { transform: rotate(2.5deg); }
+
+        /* ─── FEATURES ─── */
+        .features {
+            padding: 6rem 2rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--beige), transparent);
+        }
+
+        .section-label {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 1.1rem;
+            color: var(--rose-deep);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            color: var(--text);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--cream);
+            border: 1px solid rgba(212, 165, 181, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 36px rgba(74, 63, 63, 0.06);
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon.rose { background: rgba(212, 165, 181, 0.2); }
+        .feature-icon.lavender { background: rgba(184, 169, 201, 0.2); }
+        .feature-icon.sage { background: rgba(168, 197, 160, 0.2); }
+        .feature-icon.beige { background: rgba(232, 221, 211, 0.4); }
+        .feature-icon.cream { background: rgba(212, 165, 181, 0.12); }
+        .feature-icon.soft { background: rgba(184, 169, 201, 0.12); }
+
+        .feature-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: var(--text-soft);
+            line-height: 1.6;
+        }
+
+        /* ─── QUOTE ─── */
+        .quote-section {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: var(--cream);
+            position: relative;
+        }
+
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            color: var(--text-soft);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quote-dash {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background: var(--rose);
+            margin: 1.5rem auto;
+            border-radius: 1px;
+        }
+
+        .quote-author {
+            font-family: 'La Belle Aurore', cursive;
+            font-size: 1.1rem;
+            color: var(--rose-deep);
+        }
+
+        /* ─── FOOTER ─── */
+        .footer {
+            padding: 3rem 2rem 2rem;
+            background: var(--cream-warm);
+            border-top: 1px solid rgba(212, 165, 181, 0.15);
+        }
+
+        .footer-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-brand .logo {
+            height: 28px;
+            opacity: 0.7;
+        }
+
+        .footer-brand p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            text-decoration: none;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .footer-links a:hover {
+            color: var(--rose-deep);
+        }
+
+        .footer-bottom {
+            max-width: 900px;
+            margin: 2rem auto 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(212, 165, 181, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 300;
+        }
+
+        .footer-bottom a {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--rose-deep);
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.78rem;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+            }
+
+            .moodboard {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .polaroid img {
+                width: 200px;
+                height: 270px;
+            }
+
+            .p1, .p2 {
+                transform: rotate(0deg);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <section class="hero">
-        <nav class="nav-minimal">
-            <img src="logo-noryanotes.png" alt="NoryaNotes Logo" class="logo">
-        </nav>
+    <!-- NAV -->
+    <nav class="nav">
+        <img src="logo-noryanotes.png" alt="NoryaNotes" class="logo">
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="mailto:contacto@noryanotes.com">Contacto</a>
+        </div>
+    </nav>
 
-        <div class="hero-content">
-            <h1 class="editorial-title">Tus notas, <br><span class="italic">tu estética.</span></h1>
-            <p class="subheadline">Un espacio minimalista para mentes creativas. Diseña tus días con la delicadeza de un diario físico y la potencia de la era digital.</p>
-            
-            <div class="cta-container">
-                <!-- <a href="#" class="btn-premium">Descargar en App Store</a> -->
-                <a href="javascript:void(0)" class="btn-premium btn-disabled">Descargar en App Store</a>
-                <span class="handwritten-note">Coming soon...</span>
-            </div>
+    <!-- HERO -->
+    <section class="hero">
+        <h1 class="editorial-title">Tus notas, <br><span class="italic">tu estética.</span></h1>
+        <p class="subheadline">Un espacio minimalista para mentes creativas. Diseña tus días con la delicadeza de un diario físico y la potencia de la era digital.</p>
+
+        <div class="cta-container">
+            <a href="javascript:void(0)" class="btn-premium btn-disabled">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Descargar en App Store
+            </a>
+            <span class="handwritten-note">Coming soon...</span>
         </div>
 
-        <div class="moodboard-container">
+        <div class="moodboard">
             <div class="polaroid p1">
-                <img src="app-screen-1.png" alt="NoryaNotes Interface">
+                <img src="app-screen-1.png" alt="NoryaNotes — Cuadernos con Apple Pencil">
             </div>
             <div class="polaroid p2">
-                <img src="app-screen-2.png" alt="NoryaNotes Aesthetic">
+                <img src="app-screen-2.png" alt="NoryaNotes — Diario y tareas">
             </div>
-            <!-- <div class="washi-tape"></div> -->
         </div>
     </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <p class="section-label reveal">lo que te espera</p>
+        <h2 class="section-title reveal">Todo en un solo lugar</h2>
+
+        <div class="features-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon rose">✏️</div>
+                <h3>Escritura manuscrita</h3>
+                <p>Escribe con Apple Pencil como si fuera papel. Dot grid, líneas, cuadrículas y 18 plantillas más para cada momento.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon lavender">✅</div>
+                <h3>Gestión de tareas</h3>
+                <p>Prioridades, categorías, fechas límite y filtros inteligentes. Tus tareas organizadas con la estética que mereces.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon sage">📓</div>
+                <h3>Diario personal</h3>
+                <p>Registra tu día con mood tracking, categorías y escritura libre. Tu espacio seguro para reflexionar.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon beige">📄</div>
+                <h3>Importar PDF</h3>
+                <p>Importa documentos PDF y anota encima con Apple Pencil. Perfecto para apuntes de clase o revisar contratos.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon cream">🔍</div>
+                <h3>OCR inteligente</h3>
+                <p>Busca dentro de tu escritura manuscrita. NoryaNotes reconoce tu letra y la hace buscable al instante.</p>
+            </div>
+
+            <div class="feature-card reveal">
+                <div class="feature-icon soft">☁️</div>
+                <h3>Sync privado</h3>
+                <p>Tus datos se sincronizan vía iCloud de forma privada. Sin servidores externos, sin cuentas que crear.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUOTE -->
+    <section class="quote-section">
+        <p class="quote reveal">"El acto de escribir a mano es pensar en cámara lenta — cada trazo es una decisión, cada página un refugio."</p>
+        <span class="quote-dash"></span>
+        <p class="quote-author reveal">NoryaNotes</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo-noryanotes.png" alt="NoryaNotes" class="logo">
+                <p>Tu santuario digital para iPad.</p>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacidad</a>
+                <a href="terms.html">Términos de uso</a>
+                <a href="mailto:contacto@noryanotes.com">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 NoryaNotes. Todos los derechos reservados.</p>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- SCROLL REVEAL -->
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 
 </body>
 </html>
