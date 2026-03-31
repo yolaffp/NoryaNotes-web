@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoryaNotes — Privacy Policy</title>
+    <style>
+        :root {
+            --bg: #FDF8F5;
+            --surface: #FFFFFF;
+            --text: #5D4E4E;
+            --text-secondary: #8B7E7E;
+            --accent: #C4A4A4;
+            --border: #F5EDE8;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1E1A1A;
+                --surface: #2A2424;
+                --text: #F3EAEA;
+                --text-secondary: #D5C9C9;
+                --accent: #D8BABA;
+                --border: #352E2E;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 32px;
+        }
+        .lang-switcher a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .lang-switcher a:hover {
+            background: var(--accent);
+            color: white;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+        p { margin-bottom: 16px; font-size: 15px; }
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        li {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .footer-note {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        a { color: var(--accent); }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function switchLang(lang) {
+            document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+            document.getElementById('es').classList.toggle('hidden', lang !== 'es');
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="lang-switcher">
+        <a href="#" onclick="switchLang('en'); return false;">English</a>
+        <a href="#" onclick="switchLang('es'); return false;">Español</a>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="en">
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Last updated: March 29, 2026</p>
+
+        <div class="card">
+            <strong>In short:</strong> NoryaNotes does not collect, store, or share your personal data.
+            All your content stays on your device and in your private iCloud account.
+        </div>
+
+        <h2>1. Data We Do Not Collect</h2>
+        <p>NoryaNotes does not collect any personal information. We do not use analytics, trackers, advertising SDKs, or any third-party services that gather user data. We have no servers that receive your data.</p>
+
+        <h2>2. Your Content</h2>
+        <p>All content you create in NoryaNotes — tasks, journal entries, notebooks, handwritten notes, and drawings — is stored locally on your device and, if you have iCloud enabled, synced to your private iCloud account via Apple's CloudKit.</p>
+        <p>We never have access to your iCloud data. Apple manages the encryption and storage of your CloudKit data according to their own privacy policy.</p>
+
+        <h2>3. Camera and Photo Library</h2>
+        <p>NoryaNotes may request access to your camera and photo library to let you attach images to your notes and tasks. These images are stored only on your device and in your private iCloud account. They are never sent to us or any third party.</p>
+
+        <h2>4. Purchases</h2>
+        <p>NoryaNotes offers an optional one-time Pro upgrade via Apple's In-App Purchase system. All payment processing is handled entirely by Apple. We do not receive or store any payment information.</p>
+
+        <h2>5. Children's Privacy</h2>
+        <p>NoryaNotes does not knowingly collect personal information from children. Since we collect no personal data from any user, the app is safe for use by individuals of all ages.</p>
+
+        <h2>6. Changes to This Policy</h2>
+        <p>If we update this privacy policy, we will post the revised version on this page with an updated date. Since we collect no data, changes are unlikely.</p>
+
+        <h2>7. Contact</h2>
+        <p>If you have questions about this privacy policy, you can reach us at:</p>
+        <p><a href="mailto:contacto@noryanotes.com">contacto@noryanotes.com</a></p>
+
+        <div class="footer-note">
+            NoryaNotes is developed by an independent developer. This app is not affiliated with Apple Inc.
+        </div>
+    </div>
+
+    <!-- ESPAÑOL -->
+    <div id="es" class="hidden">
+        <h1>Política de Privacidad</h1>
+        <p class="subtitle">Última actualización: 29 de marzo de 2026</p>
+
+        <div class="card">
+            <strong>En resumen:</strong> NoryaNotes no recopila, almacena ni comparte tus datos personales.
+            Todo tu contenido permanece en tu dispositivo y en tu cuenta privada de iCloud.
+        </div>
+
+        <h2>1. Datos que no recopilamos</h2>
+        <p>NoryaNotes no recopila ninguna información personal. No utilizamos analíticas, rastreadores, SDKs de publicidad ni servicios de terceros que recojan datos de usuario. No tenemos servidores que reciban tus datos.</p>
+
+        <h2>2. Tu contenido</h2>
+        <p>Todo el contenido que creas en NoryaNotes — tareas, entradas de diario, cuadernos, notas manuscritas y dibujos — se almacena localmente en tu dispositivo y, si tienes iCloud activado, se sincroniza con tu cuenta privada de iCloud a través de CloudKit de Apple.</p>
+        <p>Nunca tenemos acceso a tus datos de iCloud. Apple gestiona el cifrado y almacenamiento de tus datos de CloudKit según su propia política de privacidad.</p>
+
+        <h2>3. Cámara y fototeca</h2>
+        <p>NoryaNotes puede solicitar acceso a tu cámara y fototeca para permitirte adjuntar imágenes a tus notas y tareas. Estas imágenes se almacenan únicamente en tu dispositivo y en tu cuenta privada de iCloud. Nunca se envían a nosotros ni a terceros.</p>
+
+        <h2>4. Compras</h2>
+        <p>NoryaNotes ofrece una actualización Pro opcional mediante el sistema de compras in-app de Apple. Todo el procesamiento de pagos lo gestiona Apple. No recibimos ni almacenamos información de pago.</p>
+
+        <h2>5. Privacidad de menores</h2>
+        <p>NoryaNotes no recopila intencionadamente información personal de menores. Dado que no recopilamos datos personales de ningún usuario, la app es segura para personas de todas las edades.</p>
+
+        <h2>6. Cambios en esta política</h2>
+        <p>Si actualizamos esta política de privacidad, publicaremos la versión revisada en esta página con la fecha actualizada. Dado que no recopilamos datos, los cambios son improbables.</p>
+
+        <h2>7. Contacto</h2>
+        <p>Si tienes preguntas sobre esta política de privacidad, puedes escribirnos a:</p>
+        <p><a href="mailto:contacto@noryanotes.com">contacto@noryanotes.com</a></p>
+
+        <div class="footer-note">
+            NoryaNotes es desarrollado por una desarrolladora independiente. Esta app no está afiliada con Apple Inc.
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

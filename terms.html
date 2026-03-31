@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoryaNotes — Terms of Use</title>
+    <style>
+        :root {
+            --bg: #FDF8F5;
+            --surface: #FFFFFF;
+            --text: #5D4E4E;
+            --text-secondary: #8B7E7E;
+            --accent: #C4A4A4;
+            --border: #F5EDE8;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #1E1A1A;
+                --surface: #2A2424;
+                --text: #F3EAEA;
+                --text-secondary: #D5C9C9;
+                --accent: #D8BABA;
+                --border: #352E2E;
+            }
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 0;
+        }
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
+        }
+        .lang-switcher {
+            text-align: right;
+            margin-bottom: 32px;
+        }
+        .lang-switcher a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            transition: all 0.2s;
+        }
+        .lang-switcher a:hover {
+            background: var(--accent);
+            color: white;
+        }
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 12px;
+            color: var(--accent);
+        }
+        p { margin-bottom: 16px; font-size: 15px; }
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        li {
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+        .footer-note {
+            margin-top: 48px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        a { color: var(--accent); }
+        .hidden { display: none; }
+    </style>
+    <script>
+        function switchLang(lang) {
+            document.getElementById('en').classList.toggle('hidden', lang !== 'en');
+            document.getElementById('es').classList.toggle('hidden', lang !== 'es');
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="lang-switcher">
+        <a href="#" onclick="switchLang('en'); return false;">English</a>
+        <a href="#" onclick="switchLang('es'); return false;">Español</a>
+    </div>
+
+    <!-- ENGLISH -->
+    <div id="en">
+        <h1>Terms of Use</h1>
+        <p class="subtitle">Last updated: March 29, 2026</p>
+
+        <h2>1. Acceptance</h2>
+        <p>By downloading or using NoryaNotes, you agree to these Terms of Use. If you do not agree, please do not use the app.</p>
+
+        <h2>2. Description of Service</h2>
+        <p>NoryaNotes is a productivity app for iPad that combines handwritten notes, task management, a daily journal, and notebooks. The app stores data locally and syncs via your private iCloud account.</p>
+
+        <h2>3. Your Content</h2>
+        <p>You retain full ownership of all content you create in NoryaNotes. We do not access, collect, or claim any rights to your notes, tasks, drawings, journal entries, or any other data you create.</p>
+        <p>You are responsible for maintaining backups of your data. While iCloud sync provides redundancy, we recommend keeping your iCloud account in good standing.</p>
+
+        <h2>4. Pro Upgrade</h2>
+        <p>NoryaNotes offers a free tier with limited features and an optional one-time Pro upgrade that unlocks additional capabilities. The Pro upgrade is a non-consumable in-app purchase processed by Apple. All purchases are final and governed by Apple's terms and refund policies.</p>
+
+        <h2>5. Acceptable Use</h2>
+        <p>You agree to use NoryaNotes only for lawful purposes and in accordance with these terms. You may not attempt to reverse-engineer, decompile, or extract source code from the app.</p>
+
+        <h2>6. Disclaimer of Warranties</h2>
+        <p>NoryaNotes is provided "as is" without warranties of any kind. While we strive to maintain a reliable and stable app, we do not guarantee that the app will be error-free or uninterrupted. We are not responsible for data loss resulting from device failures, iCloud issues, or other circumstances beyond our control.</p>
+
+        <h2>7. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, the developer of NoryaNotes shall not be liable for any indirect, incidental, or consequential damages arising from your use of the app.</p>
+
+        <h2>8. Changes to Terms</h2>
+        <p>We may update these terms from time to time. The updated version will be posted on this page. Continued use of the app after changes constitutes acceptance of the new terms.</p>
+
+        <h2>9. Apple's Standard EULA</h2>
+        <p>NoryaNotes is distributed through the Apple App Store. Your use of the app is also subject to <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Apple's Standard Licensed Application End User License Agreement (EULA)</a>.</p>
+
+        <h2>10. Contact</h2>
+        <p>If you have questions about these terms, you can reach us at:</p>
+        <p><a href="mailto:contacto@noryanotes.com">contacto@noryanotes.com</a></p>
+
+        <div class="footer-note">
+            NoryaNotes is developed by an independent developer. This app is not affiliated with Apple Inc.
+        </div>
+    </div>
+
+    <!-- ESPAÑOL -->
+    <div id="es" class="hidden">
+        <h1>Términos de Uso</h1>
+        <p class="subtitle">Última actualización: 29 de marzo de 2026</p>
+
+        <h2>1. Aceptación</h2>
+        <p>Al descargar o usar NoryaNotes, aceptas estos Términos de Uso. Si no estás de acuerdo, por favor no utilices la app.</p>
+
+        <h2>2. Descripción del servicio</h2>
+        <p>NoryaNotes es una app de productividad para iPad que combina notas manuscritas, gestión de tareas, diario personal y cuadernos. La app almacena datos localmente y los sincroniza a través de tu cuenta privada de iCloud.</p>
+
+        <h2>3. Tu contenido</h2>
+        <p>Conservas la propiedad completa de todo el contenido que creas en NoryaNotes. No accedemos, recopilamos ni reclamamos ningún derecho sobre tus notas, tareas, dibujos, entradas de diario o cualquier otro dato que crees.</p>
+        <p>Eres responsable de mantener copias de seguridad de tus datos. Aunque la sincronización con iCloud proporciona redundancia, recomendamos mantener tu cuenta de iCloud en buen estado.</p>
+
+        <h2>4. Actualización Pro</h2>
+        <p>NoryaNotes ofrece un nivel gratuito con funciones limitadas y una actualización Pro opcional de pago único que desbloquea capacidades adicionales. La actualización Pro es una compra in-app no consumible procesada por Apple. Todas las compras son definitivas y se rigen por los términos y políticas de reembolso de Apple.</p>
+
+        <h2>5. Uso aceptable</h2>
+        <p>Aceptas usar NoryaNotes únicamente con fines legales y de acuerdo con estos términos. No debes intentar realizar ingeniería inversa, descompilar o extraer código fuente de la app.</p>
+
+        <h2>6. Exención de garantías</h2>
+        <p>NoryaNotes se proporciona "tal cual" sin garantías de ningún tipo. Aunque nos esforzamos por mantener una app fiable y estable, no garantizamos que la app esté libre de errores o interrupciones. No somos responsables de la pérdida de datos resultante de fallos del dispositivo, problemas de iCloud u otras circunstancias fuera de nuestro control.</p>
+
+        <h2>7. Limitación de responsabilidad</h2>
+        <p>En la máxima medida permitida por la ley, la desarrolladora de NoryaNotes no será responsable de daños indirectos, incidentales o consecuentes derivados del uso de la app.</p>
+
+        <h2>8. Cambios en los términos</h2>
+        <p>Podemos actualizar estos términos ocasionalmente. La versión actualizada se publicará en esta página. El uso continuado de la app después de los cambios constituye la aceptación de los nuevos términos.</p>
+
+        <h2>9. EULA estándar de Apple</h2>
+        <p>NoryaNotes se distribuye a través del App Store de Apple. El uso de la app también está sujeto al <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank">Acuerdo de Licencia de Aplicación Estándar (EULA) de Apple</a>.</p>
+
+        <h2>10. Contacto</h2>
+        <p>Si tienes preguntas sobre estos términos, puedes escribirnos a:</p>
+        <p><a href="mailto:contacto@noryanotes.com">contacto@noryanotes.com</a></p>
+
+        <div class="footer-note">
+            NoryaNotes es desarrollado por una desarrolladora independiente. Esta app no está afiliada con Apple Inc.
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
