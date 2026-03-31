@@ -3,11 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoryaNotes | Tu santuario digital</title>
-    <meta name="description" content="NoryaNotes es el lienzo donde la calidez de un diario físico se encuentra con la inteligencia de iCloud. Un santuario privado para quienes lideran equipos y valoran el detalle."
-    <link rel="preconnect" href="https://fonts.googleapis.com">">
     
+    <title>NoryaNotes | Tu santuario digital</title>
+    <meta name="description" content="NoryaNotes es el lienzo donde la calidez de un diario físico se encuentra con la inteligencia de iCloud. Un santuario privado para quienes lideran equipos y valoran el detalle.">
+    <meta name="keywords" content="iPad, Apple Pencil, notas manuscritas, productividad profesional, liderazgo, diario digital, OCR, iCloud sync">
+    
+    <meta property="og:title" content="NoryaNotes | Claridad para decidir">
+    <meta property="og:description" content="El santuario digital para líderes que fusiona la calidez del papel con la potencia de iCloud.">
+    <meta property="og:image" content="logo-noryanotes.png">
+    <meta property="og:url" content="https://noryanotes.com">
+    <meta property="og:type" content="website">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --rose: #D4A5B5;
@@ -58,6 +67,8 @@
 
         .nav .logo {
             height: 36px;
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -360,8 +371,11 @@
             gap: 0.5rem;
         }
 
+        /* ARREGLO LOGO DISTORSIONADO FOOTER */
         .footer-brand .logo {
             height: 28px;
+            width: auto;
+            object-fit: contain;
             opacity: 0.7;
         }
 
@@ -406,26 +420,10 @@
             font-weight: 300;
         }
 
-        .footer-bottom a {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            text-decoration: none;
-        }
-
-        .footer-bottom a:hover {
-            color: var(--rose-deep);
-        }
-
         /* ─── ANIMATIONS ─── */
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .reveal {
@@ -441,56 +439,17 @@
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
-            .nav {
-                padding: 1rem 1.5rem;
-            }
-
-            .nav-links {
-                gap: 1.2rem;
-            }
-
-            .nav-links a {
-                font-size: 0.78rem;
-            }
-
-            .hero {
-                padding: 7rem 1.5rem 3rem;
-            }
-
-            .moodboard {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-
-            .polaroid img {
-                width: 200px;
-                height: 270px;
-            }
-
-            .p1, .p2 {
-                transform: rotate(0deg);
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .footer-bottom {
-                justify-content: center;
-                text-align: center;
-            }
+            .nav { padding: 1rem 1.5rem; }
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.78rem; }
+            .hero { padding: 7rem 1.5rem 3rem; }
+            .moodboard { flex-direction: column; align-items: center; gap: 1rem; }
+            .polaroid img { width: 200px; height: 270px; }
+            .p1, .p2 { transform: rotate(0deg); }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-content { flex-direction: column; align-items: center; text-align: center; }
+            .footer-links { flex-wrap: wrap; justify-content: center; }
+            .footer-bottom { justify-content: center; text-align: center; }
         }
     </style>
 </head>
