@@ -3,20 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>NoryaNotes | Tu santuario digital</title>
-    <meta name="description" content="NoryaNotes es el lienzo donde la calidez de un diario físico se encuentra con la inteligencia de iCloud. Un santuario privado para quienes lideran equipos y valoran el detalle.">
-    <meta name="keywords" content="iPad, Apple Pencil, notas manuscritas, productividad profesional, liderazgo, diario digital, OCR, iCloud sync">
-    
-    <meta property="og:title" content="NoryaNotes | Claridad para decidir">
-    <meta property="og:description" content="El santuario digital para líderes que fusiona la calidez del papel con la potencia de iCloud.">
-    <meta property="og:image" content="logo-noryanotes.png">
-    <meta property="og:url" content="https://noryanotes.com">
+
+    <title>NoryaNotes | App de notas para iPad con Apple Pencil, PDF e iCloud</title>
+    <meta name="description" content="NoryaNotes es una app de notas para iPad que combina escritura a mano con Apple Pencil, cuadernos, diario, tareas, anotación de PDF y sincronización privada con iCloud.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://noryanotes.com/">
+
+    <meta property="og:title" content="NoryaNotes | Notas manuscritas, diario, tareas y PDF en iPad">
+    <meta property="og:description" content="Escribe con Apple Pencil, organiza cuadernos y tareas, anota PDFs y guarda todo en iCloud con privacidad.">
+    <meta property="og:image" content="https://noryanotes.com/logo-noryanotes.png">
+    <meta property="og:url" content="https://noryanotes.com/">
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="NoryaNotes">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="NoryaNotes | App de notas para iPad">
+    <meta name="twitter:description" content="Notas manuscritas, cuadernos, diario, tareas y PDF en un espacio privado para iPad.">
+    <meta name="twitter:image" content="https://noryanotes.com/logo-noryanotes.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "NoryaNotes",
+          "url": "https://noryanotes.com/",
+          "description": "Web oficial de NoryaNotes, una app de notas para iPad con escritura manuscrita, diario, tareas, PDF e iCloud."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "NoryaNotes",
+          "operatingSystem": "iPadOS, iOS",
+          "applicationCategory": "ProductivityApplication",
+          "url": "https://noryanotes.com/",
+          "description": "App de notas para iPad con Apple Pencil, cuadernos, diario, tareas, anotación de PDF y sincronización privada con iCloud.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          }
+        }
+      ]
+    }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&family=La+Belle+Aurore&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500;700&family=La+Belle+Aurore&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --rose: #D4A5B5;
@@ -49,7 +84,6 @@
             overflow-x: hidden;
         }
 
-        /* ─── NAV ─── */
         .nav {
             position: fixed;
             top: 0;
@@ -90,7 +124,6 @@
             color: var(--rose-deep);
         }
 
-        /* ─── HERO ─── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -146,7 +179,7 @@
             font-size: clamp(1rem, 2vw, 1.15rem);
             font-weight: 300;
             color: var(--text-soft);
-            max-width: 550px;
+            max-width: 720px;
             margin: 0 auto 2.5rem;
             line-height: 1.7;
             animation: fadeUp 1s ease-out 0.2s both;
@@ -184,9 +217,14 @@
             box-shadow: 0 8px 30px rgba(212, 165, 181, 0.45);
         }
 
-        .btn-disabled {
-            opacity: 0.6;
-            pointer-events: none;
+        .btn-secondary {
+            color: var(--text-soft);
+            text-decoration: none;
+            font-size: 0.92rem;
+        }
+
+        .btn-secondary:hover {
+            color: var(--rose-deep);
         }
 
         .handwritten-note {
@@ -196,7 +234,6 @@
             opacity: 0.8;
         }
 
-        /* ─── MOODBOARD ─── */
         .moodboard {
             display: flex;
             justify-content: center;
@@ -227,21 +264,22 @@
         .p1 { transform: rotate(-3deg); }
         .p2 { transform: rotate(2.5deg); }
 
-        /* ─── FEATURES ─── */
-        .features {
+        .features,
+        .audience,
+        .faq,
+        .cta-final {
             padding: 6rem 2rem;
-            background: var(--white);
             position: relative;
         }
 
-        .features::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--beige), transparent);
+        .features,
+        .faq {
+            background: var(--white);
+        }
+
+        .audience,
+        .cta-final {
+            background: var(--cream);
         }
 
         .section-label {
@@ -257,19 +295,40 @@
             font-size: clamp(2rem, 4vw, 2.8rem);
             font-weight: 400;
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 1rem;
             color: var(--text);
         }
 
-        .features-grid {
+        .section-intro {
+            max-width: 760px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
+            color: var(--text-soft);
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .features-grid,
+        .audience-grid,
+        .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             max-width: 1000px;
             margin: 0 auto;
         }
 
-        .feature-card {
+        .features-grid,
+        .audience-grid {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .faq-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .feature-card,
+        .audience-card,
+        .faq-card {
             padding: 2rem;
             border-radius: 16px;
             background: var(--cream);
@@ -277,7 +336,14 @@
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .feature-card:hover {
+        .faq-card,
+        .audience-card {
+            background: var(--white);
+        }
+
+        .feature-card:hover,
+        .audience-card:hover,
+        .faq-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 12px 36px rgba(74, 63, 63, 0.06);
         }
@@ -300,55 +366,43 @@
         .feature-icon.cream { background: rgba(212, 165, 181, 0.12); }
         .feature-icon.soft { background: rgba(184, 169, 201, 0.12); }
 
-        .feature-card h3 {
+        .feature-card h3,
+        .audience-card h3,
+        .faq-card h3 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             color: var(--text);
         }
 
-        .feature-card p {
-            font-size: 0.9rem;
+        .feature-card p,
+        .audience-card p,
+        .faq-card p {
+            font-size: 0.95rem;
             font-weight: 300;
             color: var(--text-soft);
-            line-height: 1.6;
+            line-height: 1.65;
         }
 
-        /* ─── QUOTE ─── */
-        .quote-section {
-            padding: 5rem 2rem;
-            text-align: center;
-            background: var(--cream);
-            position: relative;
-        }
-
-        .quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: clamp(1.4rem, 3vw, 2rem);
-            color: var(--text-soft);
-            max-width: 600px;
+        .cta-final-box {
+            max-width: 760px;
             margin: 0 auto;
-            line-height: 1.6;
+            text-align: center;
+            background: rgba(255,255,255,0.65);
+            border: 1px solid rgba(212, 165, 181, 0.15);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            backdrop-filter: blur(10px);
         }
 
-        .quote-dash {
-            display: block;
-            width: 40px;
-            height: 2px;
-            background: var(--rose);
-            margin: 1.5rem auto;
-            border-radius: 1px;
+        .cta-final-box p {
+            max-width: 620px;
+            margin: 0 auto 1.8rem;
+            color: var(--text-soft);
+            line-height: 1.7;
         }
 
-        .quote-author {
-            font-family: 'La Belle Aurore', cursive;
-            font-size: 1.1rem;
-            color: var(--rose-deep);
-        }
-
-        /* ─── FOOTER ─── */
         .footer {
             padding: 3rem 2rem 2rem;
             background: var(--cream-warm);
@@ -371,7 +425,6 @@
             gap: 0.5rem;
         }
 
-        /* ARREGLO LOGO DISTORSIONADO FOOTER */
         .footer-brand .logo {
             height: 28px;
             width: auto;
@@ -388,6 +441,7 @@
         .footer-links {
             display: flex;
             gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .footer-links a {
@@ -420,7 +474,6 @@
             font-weight: 300;
         }
 
-        /* ─── ANIMATIONS ─── */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(24px); }
             to { opacity: 1; transform: translateY(0); }
@@ -437,18 +490,19 @@
             transform: translateY(0);
         }
 
-        /* ─── RESPONSIVE ─── */
         @media (max-width: 768px) {
-            .nav { padding: 1rem 1.5rem; }
-            .nav-links { gap: 1.2rem; }
+            .nav { padding: 1rem 1.2rem; }
+            .nav-links { gap: 1rem; }
             .nav-links a { font-size: 0.78rem; }
             .hero { padding: 7rem 1.5rem 3rem; }
             .moodboard { flex-direction: column; align-items: center; gap: 1rem; }
             .polaroid img { width: 200px; height: 270px; }
             .p1, .p2 { transform: rotate(0deg); }
-            .features-grid { grid-template-columns: 1fr; }
+            .features-grid,
+            .audience-grid,
+            .faq-grid { grid-template-columns: 1fr; }
             .footer-content { flex-direction: column; align-items: center; text-align: center; }
-            .footer-links { flex-wrap: wrap; justify-content: center; }
+            .footer-links { justify-content: center; }
             .footer-bottom { justify-content: center; text-align: center; }
         }
     </style>
@@ -458,90 +512,151 @@
     <nav class="nav">
         <img src="logo-noryanotes.png" alt="NoryaNotes" class="logo">
         <div class="nav-links">
-            <a href="#features">El Concepto</a>
-            <a href="mailto:hola@noryanotes.com">Contacto</a>
+            <a href="#features">Funciones</a>
+            <a href="#faq">FAQ</a>
+            <a href="mailto:contacto@noryanotes.com">Contacto</a>
         </div>
     </nav>
 
     <section class="hero">
-        <h1 class="editorial-title">Claridad para decidir, <br><span class="italic">estética para inspirar.</span></h1>
-        <p class="subheadline">NoryaNotes es el lienzo donde la visión estratégica encuentra su calma. Un <strong>santuario privado</strong> para líderes que necesitan destilar la complejidad en trazos limpios, uniendo la calidez del papel con la potencia técnica de la era digital.</p>
+        <h1 class="editorial-title">Tu espacio para escribir, pensar y <span class="italic">organizarte en iPad.</span></h1>
+        <p class="subheadline">NoryaNotes es una app de notas para iPad pensada para quienes escriben a mano con Apple Pencil y quieren reunir cuadernos, diario, tareas y PDFs en un entorno privado, bonito y sincronizado con iCloud.</p>
         <div class="cta-container">
-            <a href="javascript:void(0)" class="btn-premium btn-disabled">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-                Consigue NoryaNotes
+            <a href="mailto:contacto@noryanotes.com?subject=Quiero%20saber%20cu%C3%A1ndo%20se%20lanza%20NoryaNotes" class="btn-premium">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                Quiero saber cuándo se lanza
             </a>
+            <a href="#features" class="btn-secondary">Ver qué puede hacer NoryaNotes</a>
             <span class="handwritten-note">Próximamente en App Store</span>
         </div>
 
         <div class="moodboard">
             <div class="polaroid p1">
-                <img src="app-screen-1.png" alt="Escritura manuscrita estética">
+                <img src="app-screen-1.png" alt="Pantalla de NoryaNotes con escritura manuscrita en iPad">
             </div>
             <div class="polaroid p2">
-                <img src="app-screen-2.png" alt="Organización y journaling">
+                <img src="app-screen-2.png" alt="Pantalla de NoryaNotes con organización de diario y tareas en iPad">
             </div>
         </div>
     </section>
 
     <section class="features" id="features">
-        <p class="section-label reveal">el arte de escribir</p>
-        <h2 class="section-title reveal">Un ritual de orden y belleza</h2>
+        <p class="section-label reveal">lo esencial, bien resuelto</p>
+        <h2 class="section-title reveal">Todo lo que necesitas para tus notas en iPad</h2>
+        <p class="section-intro reveal">NoryaNotes une escritura a mano, organización personal y privacidad en una experiencia pensada para usarse de verdad cada día, no solo para verse bonita.</p>
 
         <div class="features-grid">
             <div class="feature-card reveal">
                 <div class="feature-icon rose">✏️</div>
-                <h3>El tacto del papel</h3>
-                <p>Siente la fluidez de tu trazo sobre 18 plantillas diseñadas para inspirar. La nostalgia de la tinta, sin límites.</p>
+                <h3>Escritura a mano natural</h3>
+                <p>Escribe con Apple Pencil sobre plantillas cuidadas y convierte cada página en un espacio cómodo para pensar, planificar y crear.</p>
             </div>
 
             <div class="feature-card reveal">
-                <div class="feature-icon lavender">✅</div>
-                <h3>Productividad Serena</h3>
-                <p>Categoriza tus prioridades con filtros inteligentes. Organiza tu vida sin el ruido de las apps convencionales.</p>
+                <div class="feature-icon lavender">📚</div>
+                <h3>Cuadernos, diario y tareas</h3>
+                <p>Organiza notas personales y profesionales en un solo lugar. De la reflexión diaria a la planificación de lo importante.</p>
             </div>
 
             <div class="feature-card reveal">
-                <div class="feature-icon sage">📓</div>
-                <h3>Tu refugio personal</h3>
-                <p>Un espacio seguro para tu 'mood tracking' y reflexiones. Tu historia merece ser escrita en un lugar hermoso.</p>
+                <div class="feature-icon sage">📄</div>
+                <h3>Anotación de PDF</h3>
+                <p>Subraya, comenta y trabaja sobre documentos sin salir de la app. Ideal para estudiar, revisar o desarrollar ideas.</p>
             </div>
 
             <div class="feature-card reveal">
-                <div class="feature-icon beige">📄</div>
-                <h3>Lectura Editorial</h3>
-                <p>Convierte cualquier documento en tu cuaderno de notas. Anota, subraya y crea sobre tus PDFs con elegancia.</p>
+                <div class="feature-icon beige">🔍</div>
+                <h3>Búsqueda en notas manuscritas</h3>
+                <p>Encuentra tus notas sin perder tiempo. Recupera ideas, páginas y contenidos incluso cuando escribes a mano.</p>
             </div>
 
             <div class="feature-card reveal">
-                <div class="feature-icon cream">🔍</div>
-                <h3>Memoria Inteligente</h3>
-                <p>No vuelvas a perder una idea. NoryaNotes reconoce tu caligrafía para que tus notas manuscritas sean siempre buscables.</p>
+                <div class="feature-icon cream">☁️</div>
+                <h3>Privacidad con iCloud</h3>
+                <p>Tus notas permanecen en tu ecosistema Apple. Sin cuentas innecesarias ni servidores externos ajenos a tu control.</p>
             </div>
 
             <div class="feature-card reveal">
-                <div class="feature-icon soft">☁️</div>
-                <h3>Privacidad Absoluta</h3>
-                <p>Sin cuentas, sin servidores externos. Tus pensamientos te pertenecen solo a ti, custodiados por iCloud.</p>
+                <div class="feature-icon soft">✨</div>
+                <h3>Diseño que invita a volver</h3>
+                <p>NoryaNotes no solo organiza mejor: también hace que apetezca escribir, pensar y mantener el orden cada día.</p>
             </div>
         </div>
     </section>
 
-    <section class="quote-section">
-        <p class="quote reveal">"El acto de escribir a mano es pensar en cámara lenta — cada trazo es una decisión, cada página un refugio."</p>
-        <span class="quote-dash"></span>
-        <p class="quote-author reveal">NoryaNotes</p>
+    <section class="audience" id="for-whom">
+        <p class="section-label reveal">pensada para la vida real</p>
+        <h2 class="section-title reveal">¿Para quién es NoryaNotes?</h2>
+        <p class="section-intro reveal">Para personas que piensan mejor escribiendo a mano y quieren una app de notas para iPad que combine orden, claridad y una experiencia visual cuidada.</p>
+
+        <div class="audience-grid">
+            <div class="audience-card reveal">
+                <h3>Profesionales</h3>
+                <p>Reúne notas de trabajo, tareas, ideas y documentos en un espacio limpio y privado que acompaña mejor tu día a día.</p>
+            </div>
+            <div class="audience-card reveal">
+                <h3>Estudiantes exigentes</h3>
+                <p>Escribe apuntes, anota PDFs y organiza materias o proyectos sin repartir tu información entre varias apps distintas.</p>
+            </div>
+            <div class="audience-card reveal">
+                <h3>Mentes creativas y detallistas</h3>
+                <p>Perfecta para quienes valoran la belleza del trazo, la calma visual y un sistema de notas que no se sienta frío ni impersonal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq" id="faq">
+        <p class="section-label reveal">preguntas frecuentes</p>
+        <h2 class="section-title reveal">Lo que más te interesa saber</h2>
+        <p class="section-intro reveal">Esta sección también ayuda a que Google entienda mejor qué ofrece la app y cómo encaja con lo que busca el usuario.</p>
+
+        <div class="faq-grid">
+            <div class="faq-card reveal">
+                <h3>¿NoryaNotes es una app de notas para iPad?</h3>
+                <p>Sí. NoryaNotes está pensada para iPad y para una experiencia centrada en escritura a mano, organización y lectura anotada.</p>
+            </div>
+            <div class="faq-card reveal">
+                <h3>¿Funciona con Apple Pencil?</h3>
+                <p>Sí. La app está diseñada para sacar partido a la escritura manuscrita con Apple Pencil y hacerla cómoda en el uso diario.</p>
+            </div>
+            <div class="faq-card reveal">
+                <h3>¿Se pueden anotar PDFs?</h3>
+                <p>Sí. Puedes abrir documentos PDF, subrayarlos, hacer anotaciones y seguir trabajando sobre ellos dentro de la app.</p>
+            </div>
+            <div class="faq-card reveal">
+                <h3>¿Incluye diario, cuadernos y tareas?</h3>
+                <p>Sí. NoryaNotes reúne varias formas de organización personal en una sola app para evitar saltar entre herramientas.</p>
+            </div>
+            <div class="faq-card reveal">
+                <h3>¿Se sincroniza con iCloud?</h3>
+                <p>Sí. El contenido se sincroniza mediante iCloud para que tus notas sigan dentro de tu ecosistema Apple y bajo tu control.</p>
+            </div>
+            <div class="faq-card reveal">
+                <h3>¿Es privada?</h3>
+                <p>Sí. La propuesta de NoryaNotes prioriza la privacidad y evita depender de cuentas o servidores externos innecesarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-final">
+        <div class="cta-final-box reveal">
+            <p class="section-label">próximo lanzamiento</p>
+            <h2 class="section-title">Una app de notas para iPad pensada para quedarse</h2>
+            <p>Si quieres saber cuándo llega NoryaNotes al App Store o hablar sobre la app, escríbenos. Así conviertes esta web en un punto de contacto real y no solo en una presentación bonita.</p>
+            <a href="mailto:contacto@noryanotes.com?subject=Quiero%20informaci%C3%B3n%20sobre%20NoryaNotes" class="btn-premium">Escríbenos</a>
+        </div>
     </section>
 
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-brand">
                 <img src="logo-noryanotes.png" alt="NoryaNotes" class="logo">
-                <p>Tu santuario digital para iPad.</p>
+                <p>App de notas para iPad con escritura manuscrita, PDF, tareas e iCloud.</p>
             </div>
             <div class="footer-links">
                 <a href="privacy.html">Privacidad</a>
-                <a href="mailto:hola@noryanotes.com">Contacto</a>
+                <a href="terms.html">Términos</a>
+                <a href="mailto:contacto@noryanotes.com">Contacto</a>
             </div>
         </div>
         <div class="footer-bottom">
