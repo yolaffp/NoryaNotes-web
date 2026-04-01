@@ -89,26 +89,43 @@
             top: 0;
             width: 100%;
             z-index: 100;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 1.5rem;
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            background: rgba(253, 248, 244, 0.85);
+            background: rgba(253, 248, 244, 0.88);
             border-bottom: 1px solid rgba(212, 165, 181, 0.15);
         }
 
-        .nav .logo {
-            height: 36px;
-            width: auto;
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .nav-brand img {
+            width: clamp(280px, 32vw, 560px);
+            height: auto;
+            display: block;
             object-fit: contain;
+            filter: drop-shadow(0 8px 22px rgba(74, 63, 63, 0.08));
+            transition: transform 0.3s ease;
+        }
+
+        .nav-brand:hover img {
+            transform: translateY(-1px);
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .nav-links a {
@@ -131,7 +148,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 8rem 2rem 4rem;
+            padding: 9.25rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -490,11 +507,37 @@
             transform: translateY(0);
         }
 
+        @media (max-width: 980px) {
+            .nav {
+                padding: 0.9rem 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.6rem 1rem;
+            }
+
+            .nav-brand {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-brand img {
+                width: min(82vw, 420px);
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero {
+                padding: 10.6rem 1.5rem 3rem;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav { padding: 1rem 1.2rem; }
-            .nav-links { gap: 1rem; }
             .nav-links a { font-size: 0.78rem; }
-            .hero { padding: 7rem 1.5rem 3rem; }
+            .hero { padding: 10.8rem 1.5rem 3rem; }
             .moodboard { flex-direction: column; align-items: center; gap: 1rem; }
             .polaroid img { width: 200px; height: 270px; }
             .p1, .p2 { transform: rotate(0deg); }
@@ -510,7 +553,9 @@
 <body>
 
     <nav class="nav">
-        <img src="logo-noryanotes.png" alt="NoryaNotes" class="logo">
+        <a href="#" class="nav-brand" aria-label="NoryaNotes, inicio">
+            <img src="brand-lockup-transparent.png" alt="NoryaNotes" loading="eager" decoding="async">
+        </a>
         <div class="nav-links">
             <a href="#features">Funciones</a>
             <a href="#faq">FAQ</a>
